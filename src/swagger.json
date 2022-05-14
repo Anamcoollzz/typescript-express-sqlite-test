@@ -1,0 +1,364 @@
+{
+  "swagger": "2.0",
+
+  "info": {
+    "title": "API Documentation",
+    "version": "1.0.0",
+    "description": "A simple express library API with typescript and sqlite"
+  },
+
+  "paths": {
+    "/admins": {
+      "get": {
+        "tags": ["admins"],
+        "summary": "Get all admins",
+        "description": "Get all admins",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Bearer token",
+            "required": true,
+            "type": "string",
+            "format": "string",
+            "default": "Bearer token"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "schema": {
+              "pattern": "data",
+              "$ref": "#/definitions/UsersGet"
+            }
+          }
+        }
+      }
+    },
+    "/admins/hello-world": {
+      "get": {
+        "tags": ["admins"],
+        "summary": "Hello world",
+        "description": "Hello world",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Bearer token",
+            "required": true,
+            "type": "string",
+            "format": "string",
+            "default": "Bearer token"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "schema": {
+              "example": {
+                "message": "success",
+                "data": "Hello world :)"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/admins/register": {
+      "post": {
+        "tags": ["admins"],
+        "summary": "Create a new admin",
+        "description": "Create a new admin",
+        "produces": ["application/json"],
+        "schemes": ["http", "https"],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Admin name that needs to be added to the store",
+            "schema": {
+              "$ref": "#/definitions/UserRegister"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "schema": {
+              "pattern": "data",
+              "$ref": "#/definitions/UserFind"
+            }
+          }
+        }
+      }
+    },
+    "/admins/login": {
+      "post": {
+        "tags": ["admins"],
+        "summary": "Login admin",
+        "description": "Login admin",
+        "produces": ["application/json"],
+        "schemes": ["http", "https"],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Admin name that needs to be added to the store",
+            "schema": {
+              "example": {
+                "email": "hairulanamadmin@gmail.com",
+                "password": "123456"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "schema": {
+              "pattern": "data",
+              "$ref": "#/definitions/UserFind"
+            }
+          }
+        }
+      }
+    },
+    "/customers": {
+      "get": {
+        "tags": ["customers"],
+        "summary": "Get all customers",
+        "description": "Get all customers",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Bearer token",
+            "required": true,
+            "type": "string",
+            "format": "string",
+            "default": "Bearer token"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "schema": {
+              "pattern": "data",
+              "$ref": "#/definitions/UsersGet"
+            }
+          }
+        }
+      }
+    },
+    "/customers/hello-world": {
+      "get": {
+        "tags": ["customers"],
+        "summary": "Hello world",
+        "description": "Hello world",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Bearer token",
+            "required": true,
+            "type": "string",
+            "format": "string",
+            "default": "Bearer token"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "schema": {
+              "example": {
+                "message": "success",
+                "data": "Hello world :)"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/customers/register": {
+      "post": {
+        "tags": ["customers"],
+        "summary": "Create a new customer",
+        "description": "Create a new customer",
+        "produces": ["application/json"],
+        "schemes": ["http", "https"],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Customer name that needs to be added to the store",
+            "schema": {
+              "$ref": "#/definitions/UserRegister"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "schema": {
+              "pattern": "data",
+              "$ref": "#/definitions/UserFind"
+            }
+          }
+        }
+      }
+    },
+    "/customers/login": {
+      "post": {
+        "tags": ["customers"],
+        "summary": "Login customer",
+        "description": "Login customer",
+        "produces": ["application/json"],
+        "schemes": ["http", "https"],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Customer name that needs to be added to the store",
+            "schema": {
+              "example": {
+                "email": "hairulanamcustomer@gmail.com",
+                "password": "123456"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "schema": {
+              "pattern": "data",
+              "$ref": "#/definitions/UserFind"
+            }
+          }
+        }
+      }
+    },
+    "/": {
+      "get": {
+        "tags": ["others"],
+        "summary": "Hello World",
+        "description": "Hello World",
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "schema": {
+              "example": {
+                "message": "Hello world"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/check-connection": {
+      "get": {
+        "tags": ["others"],
+        "summary": "Check Connection",
+        "description": "Check Connection",
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "schema": {
+              "example": {
+                "message": "Connection has been established successfully."
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+
+  "definitions": {
+    "UserRegister": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "User name that needs to be added to the store"
+        },
+        "email": {
+          "type": "string",
+          "description": "User email that needs to be added to the store"
+        },
+        "password": {
+          "type": "string",
+          "description": "User password that needs to be added to the store"
+        }
+      }
+    },
+    "UserLogin": {
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        }
+      }
+    },
+    "User": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number"
+        },
+        "name": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "type": "string"
+        }
+      }
+    },
+    "Users": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/User"
+      }
+    },
+    "UsersGet": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string"
+        },
+        "data": {
+          "$ref": "#/definitions/Users"
+        }
+      }
+    },
+    "UserFind": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string"
+        },
+        "data": {
+          "$ref": "#/definitions/User"
+        }
+      }
+    }
+  }
+}
